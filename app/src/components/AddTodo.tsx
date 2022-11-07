@@ -1,9 +1,12 @@
 import { Button, Grid, TextField } from "@mui/material"
+import { useState } from "react"
 
 /**
- * Renders and manages th form for a todo item addition.
+ * Renders and manages the form for a todo item addition.
  */
 const AddTodo = () => {
+    const [title, setTitle] = useState('')
+
     const handleSubmit: React.FormEventHandler = e => {
         e.preventDefault()
         // ...
@@ -21,11 +24,14 @@ const AddTodo = () => {
                     <TextField
                         fullWidth
                         label="Title"
+                        onChange={e => setTitle(e.target.value)}
+                        value={title}
                         variant="outlined"
                     />
                 </Grid>
                 <Grid item xs="auto">
                     <Button
+                        disableElevation
                         type="submit"
                         variant="contained"
                     >Add</Button>
