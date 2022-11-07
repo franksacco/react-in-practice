@@ -1,15 +1,20 @@
 import { Button, Grid, TextField } from "@mui/material"
 import { useState } from "react"
 
+type AddTodoProps = {
+    handleAdd: (title: string) => void,
+}
+
 /**
  * Renders and manages the form for a todo item addition.
  */
-const AddTodo = () => {
+const AddTodo: React.FC<AddTodoProps> = ({ handleAdd }) => {
     const [title, setTitle] = useState('')
 
     const handleSubmit: React.FormEventHandler = e => {
         e.preventDefault()
-        // ...
+        handleAdd(title)
+        setTitle('')
     }
 
     return (
