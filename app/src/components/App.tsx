@@ -1,4 +1,3 @@
-import React from 'react'
 import {
     Container,
     createTheme,
@@ -10,6 +9,7 @@ import {
 import Header from './Header'
 import TodoList from './TodoList'
 import AddTodo from './AddTodo'
+import ErrorBoundary from "../utils/errors"
 
 
 /**
@@ -26,17 +26,19 @@ const App = () => {
     })
 
     return (
-        <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <Container maxWidth="sm">
-                <Header />
-                <Paper variant='outlined'>
-                    <TodoList />
-                    <Divider />
-                    <AddTodo />
-                </Paper>
-            </Container>
-        </ThemeProvider>
+        <ErrorBoundary>
+            <ThemeProvider theme={theme}>
+                <CssBaseline />
+                <Container maxWidth="sm">
+                    <Header />
+                    <Paper variant='outlined'>
+                        <TodoList />
+                        <Divider />
+                        <AddTodo />
+                    </Paper>
+                </Container>
+            </ThemeProvider>
+        </ErrorBoundary>
     )
 }
 
