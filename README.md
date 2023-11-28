@@ -2,12 +2,9 @@
 
 Slides and source code for the "React in Practice" tutorial.
 
-
 ## Repository Structure
 
-- [`app`](app): this folder contains a very basic example of a React application;
-- [`slides`](slides): this folder contains the slides used during the tutorial.
-
+- [`2022`]: this folder contains the slides and the source code for the 2022 edition of the tutorial;
 
 ## Author
 
