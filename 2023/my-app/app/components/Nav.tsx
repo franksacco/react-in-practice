@@ -14,6 +14,12 @@ export default function Nav() {
       >
         Home
       </Link>
+      <Link
+        className={`p-4 hover:bg-slate-200 ${pathname === '/posts' && "font-bold"}`}
+        href="/posts"
+      >
+        Posts
+      </Link>
     </nav>
   )
 }
