@@ -1,6 +1,7 @@
-import Link from "next/link"
-import PostPreview from "@/components/posts/PostPreview"
-import { getPosts } from "@/lib/posts"
+import Link from 'next/link'
+
+import { getPosts } from '@/lib/posts'
+import PostPreview from '@/components/posts/PostPreview'
 
 export default async function Home() {
   const posts = (await getPosts()).slice(0, 3)

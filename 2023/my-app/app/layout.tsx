@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Nunito } from 'next/font/google'
 import './globals.css'
 
-import Nav from '../components/Nav'
+import Nav from '@/components/Nav'
 
 const inter = Nunito({ subsets: ['latin'] })
 

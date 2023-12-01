@@ -1,5 +1,6 @@
-import { Post } from '@/lib/types'
 import { promises as fs } from 'fs'
+
+import { Post } from '@/lib/types'
 
 export async function getPosts() {
     const file = await fs.readFile(process.cwd() + '/lib/data.json', 'utf-8')

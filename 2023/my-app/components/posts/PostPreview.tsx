@@ -1,5 +1,6 @@
-import { Post } from '@/app/lib/types'
 import Link from 'next/link'
+
+import { Post } from '@/lib/types'
 
 export default function PostPreview({ post }: { post: Post }) {
     return (

@@ -1,5 +1,5 @@
-import PostPreview from "@/components/posts/PostPreview"
-import { getPosts } from "@/lib/posts"
+import { getPosts } from '@/lib/posts'
+import PostPreview from '@/components/posts/PostPreview'
 
 export default async function Posts() {
     const posts = await getPosts()

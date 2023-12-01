@@ -1,4 +1,4 @@
-import { Post } from '@/app/lib/types'
+import { Post } from '@/lib/types'
 
 export default function PostDetails({ post }: { post: Post }) {
     return (
