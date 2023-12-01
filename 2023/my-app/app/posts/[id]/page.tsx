@@ -1,5 +1,5 @@
-import PostDetails from '@/app/components/posts/PostDetails'
-import { getPost, getPosts } from '@/app/lib/posts'
+import PostDetails from '@/components/posts/PostDetails'
+import { getPost, getPosts } from '@/lib/posts'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
