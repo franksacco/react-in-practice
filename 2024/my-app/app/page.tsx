@@ -1,36 +1,55 @@
-const person = {
-  name: 'Gregorio Y. Zara',
-  theme: {
-    backgroundColor: 'lightblue',
-    color: 'red',
-    padding: '10px',
-    borderRadius: '10px',
-    width: '500px',
-  }
+type Person = {
+  name: string;
+  imageId: string;
 };
 
-function TodoList() {
+function getImageUrl(person: Person, size = 's') {
   return (
-    <div style={person.theme}>
-      <h1>{person.name}&apos;s Todos</h1>
-      <img
-        className="rounded-full"
-        src="https://i.imgur.com/7vQD0fPs.jpg"
-        alt="Gregorio Y. Zara"
-      />
-      <ul>
-        <li>Improve the videophone</li>
-        <li>Prepare aeronautics lectures</li>
-        <li>Work on the alcohol-fuelled engine</li>
-      </ul>
+    'https://i.imgur.com/' +
+    person.imageId +
+    size +
+    '.jpg'
+  );
+}
+
+function Avatar({ person, size }: { person: Person; size: number }) {
+  return (
+    <img
+      className="rounded-full"
+      src={getImageUrl(person)}
+      alt={person.name}
+      width={size}
+      height={size}
+    />
+  );
+}
+
+function Card({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="w-fit rounded-lg border border-solid border-gray-500 p-4">
+      {children}
     </div>
+  );
+}
+
+function Profile() {
+  return (
+    <Card>
+      <Avatar
+        size={100}
+        person={{
+          name: 'Katsuko Saruhashi',
+          imageId: 'YfeOqp2'
+        }}
+      />
+    </Card>
   );
 }
 
 export default function Home() {
   return (
     <section className="m-4">
-      <TodoList />
+      <Profile />
     </section>
   );
 }
