@@ -1,20 +1,36 @@
-function Profile() {
+const person = {
+  name: 'Gregorio Y. Zara',
+  theme: {
+    backgroundColor: 'lightblue',
+    color: 'red',
+    padding: '10px',
+    borderRadius: '10px',
+    width: '500px',
+  }
+};
+
+function TodoList() {
   return (
-    <img
-      src="https://i.imgur.com/MK3eW3As.jpg"
-      alt="Katherine Johnson"
-      className="rounded-full h-24 w-24 m-2"
-    />
+    <div style={person.theme}>
+      <h1>{person.name}&apos;s Todos</h1>
+      <img
+        className="rounded-full"
+        src="https://i.imgur.com/7vQD0fPs.jpg"
+        alt="Gregorio Y. Zara"
+      />
+      <ul>
+        <li>Improve the videophone</li>
+        <li>Prepare aeronautics lectures</li>
+        <li>Work on the alcohol-fuelled engine</li>
+      </ul>
+    </div>
   );
 }
 
 export default function Home() {
   return (
     <section className="m-4">
-      <h1 className="my-4">Welcome to my app!</h1>
-      <Profile />
-      <Profile />
-      <Profile />
+      <TodoList />
     </section>
   );
 }
