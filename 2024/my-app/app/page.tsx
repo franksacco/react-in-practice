@@ -2,15 +2,33 @@
 
 import { useState } from "react";
 
-const Home = () => {
-  const [count, setCount] = useState(0);
+const TrackCursor = () => {
+  const [cursor, setCursor] = useState({ x: 0, y: 0 });
 
   return (
-    <div className="p-4">
-      <h1>Counter: {count}</h1>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-      {count > 0 && <button onClick={() => setCount(0)}>Reset</button>}
+    <div
+      className="h-screen w-screen relative"
+      onMouseMove={e => setCursor({ x: e.clientX, y: e.clientY })}
+    >
+      <div className="p-4">
+        Cursor: {cursor.x}, {cursor.y}
+      </div>
+      <div style={{
+        position: 'absolute',
+        backgroundColor: 'red',
+        borderRadius: '50%',
+        transform: `translate(${cursor.x}px, ${cursor.y}px)`,
+        left: -10,
+        top: -10,
+        width: 20,
+        height: 20,
+      }} />
     </div>
   );
 }
-export default Home;
+
+export default function Home() {
+  return (
+    <TrackCursor />
+  );
+}
