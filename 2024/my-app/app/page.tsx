@@ -1,30 +1,16 @@
-const Item = ({ name, isPacked }: { name: string, isPacked: boolean }) => (
-  <li className="item">
-    {name} {isPacked && '✅'}
-  </li>
-);
+"use client";
 
-const PackingList = () => (
-  <section>
-    <h1>Sally Ride&apos;s Packing List</h1>
-    <ul>
-      <Item
-        isPacked={true}
-        name="Space suit"
-      />
-      <Item
-        isPacked={true}
-        name="Helmet with a golden leaf"
-      />
-      <Item
-        isPacked={false}
-        name="Photo of Tam"
-      />
-    </ul>
-  </section>
-);
+import { useState } from "react";
 
-const Home = () => (
-  <PackingList />
-);
+const Home = () => {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div className="p-4">
+      <h1>Counter: {count}</h1>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+      {count > 0 && <button onClick={() => setCount(0)}>Reset</button>}
+    </div>
+  );
+}
 export default Home;
