@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 import { getPost, getPosts } from "@/lib/posts";
 import PostDetails from "@/components/posts/PostDetails";
@@ -10,6 +11,9 @@ export default async function Post({
 }) {
   const { id } = await params;
   const post = await getPost(Number.parseInt(id));
+  if (post === null) {
+    notFound();
+  }
   return (
     <>
       <PostDetails post={post} />
