@@ -1,55 +1,30 @@
-type Person = {
-  name: string;
-  imageId: string;
-};
+const Item = ({ name, isPacked }: { name: string, isPacked: boolean }) => (
+  <li className="item">
+    {name} {isPacked && '✅'}
+  </li>
+);
 
-function getImageUrl(person: Person, size = 's') {
-  return (
-    'https://i.imgur.com/' +
-    person.imageId +
-    size +
-    '.jpg'
-  );
-}
-
-function Avatar({ person, size }: { person: Person; size: number }) {
-  return (
-    <img
-      className="rounded-full"
-      src={getImageUrl(person)}
-      alt={person.name}
-      width={size}
-      height={size}
-    />
-  );
-}
-
-function Card({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="w-fit rounded-lg border border-solid border-gray-500 p-4">
-      {children}
-    </div>
-  );
-}
-
-function Profile() {
-  return (
-    <Card>
-      <Avatar
-        size={100}
-        person={{
-          name: 'Katsuko Saruhashi',
-          imageId: 'YfeOqp2'
-        }}
+const PackingList = () => (
+  <section>
+    <h1>Sally Ride&apos;s Packing List</h1>
+    <ul>
+      <Item
+        isPacked={true}
+        name="Space suit"
       />
-    </Card>
-  );
-}
+      <Item
+        isPacked={true}
+        name="Helmet with a golden leaf"
+      />
+      <Item
+        isPacked={false}
+        name="Photo of Tam"
+      />
+    </ul>
+  </section>
+);
 
-export default function Home() {
-  return (
-    <section className="m-4">
-      <Profile />
-    </section>
-  );
-}
+const Home = () => (
+  <PackingList />
+);
+export default Home;
