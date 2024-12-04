@@ -1,5 +1,20 @@
-export default function Posts() {
+import { getPosts } from "@/lib/posts";
+import PostPreview from "@/components/posts/PostPreview";
+
+export default async function Posts() {
+  const posts = await getPosts();
   return (
-    <section>Posts</section>
+    <>
+      <h1 className="font-light text-4xl mt-4 mb-6">
+        Blog Posts
+      </h1>
+      <div className="border-t">
+        {posts.map((p, i) => (
+          <div className="border-b py-2" key={i}>
+            <PostPreview post={p} />
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
