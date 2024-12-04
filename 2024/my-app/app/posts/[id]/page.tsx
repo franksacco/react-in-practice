@@ -1,4 +1,7 @@
-import { getPosts } from "@/lib/posts";
+import Link from "next/link";
+
+import { getPost, getPosts } from "@/lib/posts";
+import PostDetails from "@/components/posts/PostDetails";
 
 export default async function Post({
   params
@@ -6,8 +9,14 @@ export default async function Post({
   params: Promise<{ id: string }>
 }) {
   const { id } = await params;
+  const post = await getPost(Number.parseInt(id));
   return (
-    <section>Post {id}</section>
+    <>
+      <PostDetails post={post} />
+      <div className="underline mt-6 mb-2">
+        <Link href="/posts">{"<"} Back to all posts</Link>
+      </div>
+    </>
   );
 }
 
